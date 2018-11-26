@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Paint API Experiment</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="An example of Houdini CSS Paint API" />
+    <meta name="keywords" content="Houdindi,web development CSS,experimental web api" />
+    <meta name="author" content="Seth Corker" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CSS Paint API Experiment" />
+
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 8rem);
+        grid-template-rows: repeat(3, 8rem);
+        grid-gap: 1rem;
+        justify-items: flex-start;
+      }
+
+      .icon {
+        border-radius: 1rem;
+        background-size: cover;
+        width: 8rem;
+        height: 8rem;
+      }
+
+      @supports (-webkit-mask-image: paint(squircle)) {
+        .icon {
+          border-radius: 0;
+          mask-image: paint(squircle);
+          -webkit-mask-image: paint(squircle);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=0)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=30)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=60)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=90)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=121)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=140)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=180)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=610)"
+      ></div>
+      <div
+        class="icon"
+        style="background-image: url(https://picsum.photos/256?image=340)"
+      ></div>
+    </div>
+  </body>
+  <script>
+    if ("paintWorklet" in CSS) {
+      CSS.paintWorklet.addModule("squircle.js");
+    }
+  </script>
+</html>
