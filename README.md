@@ -1,6 +1,6 @@
 # A look at Houdini CSS Paint Api
 
-As of November 2018, *This works best on* Chrome and Opera.
+As of November 2020, *This works best on* Chrome and Opera. Still not ready on Firefox.
 
 To see if this has changed, take a look at [Is Houdini Ready Yet](https://ishoudinireadyyet.com/).
 
